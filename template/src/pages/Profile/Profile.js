@@ -28,10 +28,10 @@ export default function Profile({ navigation }) {
     }
 
     return (
-        <ScrollView style={ }>
+        <ScrollView>
             <View style={styles.container}>
                 <View style={[{ alignItems: 'center' }]}>
-                    <ImageBackground source={() => { return { uri: mapGetters?.getUser()?.photoURL?.replace('localhost', "192.168.1.35") } }} resizeMode="cover" imageStyle={[{ borderRadius: 10 }]} style={styles.profileImage} />
+                    <ImageBackground source={{ uri: mapGetters?.getUser()?.photoURL?.replace('localhost', "192.168.1.35") }} resizeMode="cover" imageStyle={[{ borderRadius: 10 }]} style={styles.profileImage} />
                     <Text style={[styles.h3, { fontFamily: "Lato-Bold", marginVertical: 8 }]}>{mapGetters.getUser()?.fullName}</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
                         <Text style={[styles.h3, { fontFamily: "Lato-Bold", color: color.primary }]}>Profili Düzenle</Text>

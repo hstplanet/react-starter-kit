@@ -15,7 +15,7 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.qdrawer}>
-                <Image source={() => { return { uri: mapGetters?.getUser().photoURL.replace('localhost', "192.168.1.35") } }} style={styles.image} />
+                <Image source={[{ uri: mapGetters?.getUser().photoURL.replace('localhost', "192.168.1.35") }]} style={styles.image} />
                 <Text style={styles.userName}>{mapGetters?.getUser()?.fullName}</Text>
 
                 <TouchableOpacity onPress={() => {

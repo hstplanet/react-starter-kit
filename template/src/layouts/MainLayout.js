@@ -63,7 +63,7 @@ export default function MainLayout({ navigation }) {
                     </TouchableOpacity>
 
                     <Text>HST Planet Yazılım</Text>
-                    <Image source={() => { return { uri: mapGetters.getUser()?.photoURL?.replace("localhost", "192.168.1.35") } }} style={styles.headerImage} />
+                    <Image source={[{ uri: mapGetters.getUser()?.photoURL?.replace("localhost", "192.168.1.35") }]} style={styles.headerImage} />
                 </QHeader>
 
                 <QPageContainer>
