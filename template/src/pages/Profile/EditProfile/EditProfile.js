@@ -91,7 +91,7 @@ export default function EditProfile({ navigation }) {
     return (
         <ScrollView style={[{ flex: 1, backgroundColor: '#fff' }]}>
             <View style={[styles.row, { padding: 12 }]}>
-                <Image style={styles.profilePhoto} source={{ uri: photoURL.replace("localhost", "192.168.1.35") }} />
+                <Image style={styles.profilePhoto} source={[{ uri: photoURL.replace("localhost", "192.168.1.35") }]} />
                 <View style={[{ marginLeft: 12, alignItems: 'flex-start' }]}>
                     <Text style={styles.h2}>{user.fullName}</Text>
                     <Text style={[{ color: color.fontColor }]}>{user.emailAddress}</Text>
