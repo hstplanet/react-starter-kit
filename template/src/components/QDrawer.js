@@ -15,30 +15,16 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.qdrawer}>
-                <Image source={{uri: mapGetters?.getUser()?.photoURL?.replace('localhost' , "192.168.1.35")}} style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 10,
-                    marginTop: 8
-                }} />
-
-                <Text style={{
-                    fontSize: 20,
-                    fontWeight: 'bold',
-                    color: 'white',
-                    marginTop: 20
-                }}>{mapGetters?.getUser()?.fullName}</Text>
+                <Image source={() => { return { uri: mapGetters?.getUser().photoURL.replace('localhost', "192.168.1.35") } }} style={styles.image} />
+                <Text style={styles.userName}>{mapGetters?.getUser()?.fullName}</Text>
 
                 <TouchableOpacity onPress={() => {
                     navigation.navigate("Profile");
                     setShowMenu(true)
                 }}>
-                    <Text style={{
-                        marginTop: 6,
-                        color: 'white'
-                    }}>Profilim</Text>
+                    <Text style={styles.profileBtn}>Profilim</Text>
                 </TouchableOpacity>
-                <View style={{ flexGrow: 1, marginTop: 20 }}>
+                <View style={styles.btnArea}>
                     {
                         children.map((child) => {
                             if (child != null) {
@@ -66,9 +52,28 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
-    qdrawer : {
-        justifyContent: 'flex-start', 
-        paddingVertical: 35, 
+    image: {
+        width: 60,
+        height: 60,
+        borderRadius: 10,
+        marginTop: 8
+    },
+    userName: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'white',
+        marginTop: 20
+    },
+    profileBtn: {
+        marginTop: 6,
+        color: 'white'
+    },
+    btnArea: {
+        flexGrow: 1, marginTop: 20
+    },
+    qdrawer: {
+        justifyContent: 'flex-start',
+        paddingVertical: 35,
         paddingHorizontal: 15
     }
 });
