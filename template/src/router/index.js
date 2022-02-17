@@ -10,12 +10,13 @@ import Notification from "../pages/Notification"
 import Settings from "../pages/Settings"
 import Profile from "../pages/Profile/Profile"
 
-
+{{#if_eq preset.loginsystem}}
 import SignIn from "../pages/Login/SignIn"
 import SignUp from "../pages/Login/SignUp"
 import Forget from "../pages/Login/Forget"
 import Reset from "../pages/Login/Reset"
 import ResetPassword from "../pages/Login/ResetPassword"
+{{/if_eq}}
 
 import Address from "../pages/Profile/Address/Address"
 import EditProfile from "../pages/Profile/EditProfile/EditProfile"
