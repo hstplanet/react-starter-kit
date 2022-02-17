@@ -15,7 +15,7 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ justifyContent: 'flex-start', paddingVertical: 35, paddingHorizontal: 15 }}>
-            {{#if preset.loginsystem}}
+            {{#if_eq preset.loginsystem}}
                 <Image source={{uri: mapGetters?.getUser()?.photoURL?.replace('localhost' , "192.168.1.35")}} style={{
                     width: 60,
                     height: 60,
@@ -49,7 +49,7 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
                         })
                     }
                 </View>
-                {{#if preset.loginsystem}}
+                {{#if_eq preset.loginsystem}}
                 <View>
                     <QDrawerMenu currentTab={currentTab} setCurrentTab={setCurrentTab} title="Çıkış Yap" image={logout} navigation={navigation} to="Login" setShowMenu={setShowMenu} />
                 </View>

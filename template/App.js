@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 
 import MainLayout from "./src/layouts/MainLayout"
-{{#if preset.loginsystem}}
+{{#if_eq preset.loginsystem}}
 import LoginLayout from "./src/layouts/LoginLayout"
 {{/if_eq}}
 import fonts from "./src/css/fonts"
@@ -29,7 +29,7 @@ export default function App() {
           headerShown: false,
           animationEnabled: false
         }}>
-          {{#if preset.loginsystem}}
+          {{#if_eq preset.loginsystem}}
           <AppStack.Screen name="Login" component={LoginLayout} />
           {{/if_eq}}
           <AppStack.Screen name="Main" component={MainLayout} />

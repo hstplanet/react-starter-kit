@@ -10,7 +10,7 @@ import Notification from "../pages/Notification"
 import Settings from "../pages/Settings"
 import Profile from "../pages/Profile/Profile"
 
-{{#if preset.loginsystem}}
+{{#if_eq preset.loginsystem}}
 import SignIn from "../pages/Login/SignIn"
 import SignUp from "../pages/Login/SignUp"
 import Forget from "../pages/Login/Forget"
@@ -58,7 +58,7 @@ const RouterMainLayout = [
         isSecurty: false,
         component: Settings
     },
-    {{#if preset.loginsystem}}
+    {{#if_eq preset.loginsystem}}
     {
         name: "Profil",
         path: "Profile",
@@ -99,7 +99,7 @@ const RouterMainLayout = [
 
 ]
 
-{{#if preset.loginsystem}}
+{{#if_eq preset.loginsystem}}
 const RouterLoginLayout = [
 
     {
@@ -149,4 +149,4 @@ const RouterLoginLayout = [
     }
 ]
 {{/if_eq}}
-export { RouterMainLayout{{#if preset.loginsystem}}, RouterLoginLayout{{/if_eq}} }
+export { RouterMainLayout{{#if_eq preset.loginsystem}}, RouterLoginLayout{{/if_eq}} }

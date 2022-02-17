@@ -11,7 +11,7 @@ export default function QDrawerMenu({ currentTab, setCurrentTab, title, image, n
 
     return (
         <TouchableOpacity onPress={() => {
-            {{#if preset.loginsystem}}
+            {{#if_eq preset.loginsystem}}
             if (title == "Çıkış Yap") {
                 new hst().server.auth.logout().then(() => {
                     setShowMenu(true)
@@ -26,7 +26,7 @@ export default function QDrawerMenu({ currentTab, setCurrentTab, title, image, n
                 setShowMenu(true)
             }
             {{/if_eq}}
-            {{#if !preset.loginsystem}}
+            {{#if_eq !preset.loginsystem}}
                 setCurrentTab(title)
                 navigation.navigate(to)
                 setShowMenu(true)
