@@ -8,18 +8,17 @@ import NotFound from "../pages/404"
 import Search from "../pages/Search"
 import Notification from "../pages/Notification"
 import Settings from "../pages/Settings"
-import Profile from "../pages/Profile/Profile"
 
 {{#if preset.loginsystem}}
+import Profile from "../pages/Profile/Profile"
 import SignIn from "../pages/Login/SignIn"
 import SignUp from "../pages/Login/SignUp"
 import Forget from "../pages/Login/Forget"
 import Reset from "../pages/Login/Reset"
 import ResetPassword from "../pages/Login/ResetPassword"
-{{/if}}
-
-import Address from "../pages/Profile/Address/Address"
 import EditProfile from "../pages/Profile/EditProfile/EditProfile"
+import Address from "../pages/Profile/Address/Address"
+{{/if}}
 
 const RouterMainLayout = [
 
@@ -98,7 +97,7 @@ const RouterMainLayout = [
     }
 
 ]
-
+{{#if preset.loginsystem}}
 const RouterLoginLayout = [
 
     {
@@ -147,4 +146,5 @@ const RouterLoginLayout = [
         component: ResetPassword
     }
 ]
-export { RouterMainLayout, RouterLoginLayout}
+{{/if}}
+export { RouterMainLayout{{#if preset.loginsystem}}, RouterLoginLayout{{/if}} }
