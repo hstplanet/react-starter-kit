@@ -15,7 +15,6 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.qdrawer}>
-            {{#if_eq preset.loginsystem}}
                 <Image source={{uri: mapGetters?.getUser()?.photoURL?.replace('localhost' , "192.168.1.35")}} style={{
                     width: 60,
                     height: 60,
@@ -39,7 +38,6 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
                         color: 'white'
                     }}>Profilim</Text>
                 </TouchableOpacity>
-                {{/if_eq}}
                 <View style={{ flexGrow: 1, marginTop: 20 }}>
                     {
                         children.map((child) => {
@@ -49,11 +47,9 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
                         })
                     }
                 </View>
-                {{#if_eq preset.loginsystem}}
                 <View>
                     <QDrawerMenu currentTab={currentTab} setCurrentTab={setCurrentTab} title="Çıkış Yap" image={logout} navigation={navigation} to="Login" setShowMenu={setShowMenu} />
                 </View>
-                {{/if_eq}}
             </View>
         </SafeAreaView>
     )

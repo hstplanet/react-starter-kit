@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useDispatch } from 'react-redux'
 
-{{#if_eq preset.loginsystem}}
+
 import mapGetters from "../store/User/getters";
 import mapActions from "../store/User/actions"
-{{/if_eq}}
+
 import hst from "../hst";
 
 import menu from '../assets/menu.png';
@@ -31,14 +31,12 @@ export default function MainLayout({ navigation }) {
 
     
     React.useEffect(() => {
-        {{#if_eq preset.loginsystem}}
         new hst().server.auth.onAuthStateChanged().then(user => {
             dispatch(mapActions.setUser(user))
             setLoad(true);
         }).catch(error => {
             navigation.navigate("SignIn")
         });
-        {{/if_eq}}
     }, []);
     
     return (
@@ -65,13 +63,11 @@ export default function MainLayout({ navigation }) {
                     </TouchableOpacity>
 
                     <Text>HST Planet Yazılım</Text>
-                    {{#if_eq preset.loginsystem}}
                     <Image source={{ uri: mapGetters.getUser()?.photoURL?.replace("localhost", "192.168.1.35") }} style={{
                         width: 38,
                         height: 38,
                         borderRadius: 38,
                     }} />
-                    {{/if_eq}}
                 </QHeader>
 
                 <QPageContainer>

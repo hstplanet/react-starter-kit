@@ -10,7 +10,7 @@ import Notification from "../pages/Notification"
 import Settings from "../pages/Settings"
 import Profile from "../pages/Profile/Profile"
 
-{{#if_eq preset.loginsystem}}
+
 import SignIn from "../pages/Login/SignIn"
 import SignUp from "../pages/Login/SignUp"
 import Forget from "../pages/Login/Forget"
@@ -19,7 +19,7 @@ import ResetPassword from "../pages/Login/ResetPassword"
 
 import Address from "../pages/Profile/Address/Address"
 import EditProfile from "../pages/Profile/EditProfile/EditProfile"
-{{/if_eq}}
+
 const RouterMainLayout = [
 
     {
@@ -58,7 +58,7 @@ const RouterMainLayout = [
         isSecurty: false,
         component: Settings
     },
-    {{#if_eq preset.loginsystem}}
+
     {
         name: "Profil",
         path: "Profile",
@@ -86,7 +86,6 @@ const RouterMainLayout = [
         isSecurty: false,
         component: EditProfile
     },
-    {{/if_eq}}
     {
         name: "NotFound",
         path: "NotFound",
@@ -99,7 +98,6 @@ const RouterMainLayout = [
 
 ]
 
-{{#if_eq preset.loginsystem}}
 const RouterLoginLayout = [
 
     {
@@ -148,5 +146,4 @@ const RouterLoginLayout = [
         component: ResetPassword
     }
 ]
-{{/if_eq}}
-export { RouterMainLayout{{#if_eq preset.loginsystem}}, RouterLoginLayout{{/if_eq}} }
+export { RouterMainLayout, RouterLoginLayout}

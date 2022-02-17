@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text{{#if_eq preset.loginsystem}}, Alert {{/if_eq}} } from 'react-native';
+import { StyleSheet, View, Text, Alert } from 'react-native';
 import hst from "../hst"
 export default function Index({ navigation }) {
 
-    {{#if_eq preset.loginsystem}}
     React.useEffect(() => {
         navigation.addListener('beforeRemove', (e) => {
             e.preventDefault();
@@ -25,7 +24,6 @@ export default function Index({ navigation }) {
             );
         })
     }, [])
-    {{/if_eq}}
 
     return (
 
