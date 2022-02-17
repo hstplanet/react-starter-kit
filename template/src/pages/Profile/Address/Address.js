@@ -19,21 +19,21 @@ export default function Address({ navigation }) {
     }
 
     return (
-        <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <ScrollView style={[{ flex: 1, backgroundColor: '#fff' }]}>
 
 
             <TouchableOpacity style={[styles.row, { width: "100%", padding: 12, justifyContent: "space-between", alignItems: "center" }]} onPress={() => getUser()}>
                 <Image source={location} style={styles.icon} tintColor={color.primary} />
-                <View style={{ marginLeft: 20, flexGrow: 1 }}>
-                    <Text style={{ fontFamily: "Lato-Bold" }}>Adres Name</Text>
-                    <Text style={{ fontSize: 12, marginTop: 2 }}>Açıklama</Text>
+                <View style={[{ marginLeft: 20, flexGrow: 1 }]}>
+                    <Text style={[{ fontFamily: "Lato-Bold" }]}>Adres Name</Text>
+                    <Text style={[{ fontSize: 12, marginTop: 2 }]}>Açıklama</Text>
                 </View>
                 <Image source={next} style={styles.icon} tintColor={color.fontColor} />
             </TouchableOpacity>
             <QSeperator />
 
-            <View style={{ alignItems: "center", marginTop: 20 }}>
-                <View style={{ padding: 12, backgroundColor: color.primary, borderRadius: 50 }}>
+            <View style={[{ alignItems: "center", marginTop: 20 }]}>
+                <View style={[{ padding: 12, backgroundColor: color.primary, borderRadius: 50 }]}>
                     <Image source={Add} style={styles.icon} tintColor={color.backgroundColor} />
                 </View>
             </View>

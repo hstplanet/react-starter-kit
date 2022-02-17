@@ -28,7 +28,7 @@ export default function EditProfile({ navigation }) {
     const [lastName, onChangeLastName] = React.useState(user.lastname);
     const [phone, onChangePhone] = React.useState(user.phone);
     const [photoURL, onChangePhotoURL] = React.useState(user.photoURL);
-    
+
     const validateEmail = (email) => {
         return String(email)
             .toLowerCase()
@@ -89,20 +89,20 @@ export default function EditProfile({ navigation }) {
 
 
     return (
-        <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <ScrollView style={[{ flex: 1, backgroundColor: '#fff' }]}>
             <View style={[styles.row, { padding: 12 }]}>
-                <Image style={styles.profilePhoto} source={{ uri: photoURL.replace("localhost", "192.168.1.35") }} />
-                <View style={{ marginLeft: 12, alignItems: 'flex-start' }}>
+                <Image style={styles.profilePhoto} source={() => { return { uri: photoURL.replace("localhost", "192.168.1.35") } }} />
+                <View style={[{ marginLeft: 12, alignItems: 'flex-start' }]}>
                     <Text style={styles.h2}>{user.fullName}</Text>
-                    <Text style={{ color: color.fontColor }}>{user.emailAddress}</Text>
-                    <TouchableOpacity style={{ marginTop: 5, backgroundColor: color.primary, borderRadius: 3, padding: 5 }} onPress={pickImage}>
-                        <Text style={{ fontSize: 16, color: color.backgroundColor }}>Profil Resmini Değiştir</Text>
+                    <Text style={[{ color: color.fontColor }]}>{user.emailAddress}</Text>
+                    <TouchableOpacity style={[{ marginTop: 5, backgroundColor: color.primary, borderRadius: 3, padding: 5 }]} onPress={pickImage}>
+                        <Text style={[{ fontSize: 16, color: color.backgroundColor }]}>Profil Resmini Değiştir</Text>
                     </TouchableOpacity>
                 </View>
             </View>
             <QSeperator />
-            <View style={{ flexDirection: "row", alignItems: 'center', padding: 12 }}>
-                <Text style={{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>E Posta</Text>
+            <View style={[{ flexDirection: "row", alignItems: 'center', padding: 12 }]}>
+                <Text style={[{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>E Posta</Text>
                 <TextInput
                     style={[styles.input, { flexGrow: 1 }]}
                     onChangeText={onChangeEmail}
@@ -110,8 +110,8 @@ export default function EditProfile({ navigation }) {
                 />
             </View>
             <QSeperator />
-            <View style={{ flexDirection: "row", alignItems: 'center', padding: 12 }}>
-                <Text style={{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Adınız</Text>
+            <View style={[{ flexDirection: "row", alignItems: 'center', padding: 12 }]}>
+                <Text style={[{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Adınız</Text>
                 <TextInput
                     style={[styles.input, { flexGrow: 1 }]}
                     onChangeText={onChangeName}
@@ -119,8 +119,8 @@ export default function EditProfile({ navigation }) {
                 />
             </View>
             <QSeperator />
-            <View style={{ flexDirection: "row", alignItems: 'center', padding: 12 }}>
-                <Text style={{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Soyadınız</Text>
+            <View style={[{ flexDirection: "row", alignItems: 'center', padding: 12 }]}>
+                <Text style={[{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Soyadınız</Text>
                 <TextInput
                     style={[styles.input, { flexGrow: 1 }]}
                     onChangeText={onChangeLastName}
@@ -128,8 +128,8 @@ export default function EditProfile({ navigation }) {
                 />
             </View>
             <QSeperator />
-            <View style={{ flexDirection: "row", alignItems: 'center', padding: 12 }}>
-                <Text style={{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Telefon</Text>
+            <View style={[{ flexDirection: "row", alignItems: 'center', padding: 12 }]}>
+                <Text style={[{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Telefon</Text>
                 <TextInput
                     style={[styles.input, { flexGrow: 1 }]}
                     onChangeText={onChangePhone}
@@ -138,8 +138,8 @@ export default function EditProfile({ navigation }) {
                 />
             </View>
             <View style={[styles.row, { padding: 12, justifyContent: 'flex-end' }]}>
-                <TouchableOpacity style={{ backgroundColor: color.primary, paddingHorizontal: 20, paddingVertical: 9, borderRadius: 5 }} onPress={() => { updateProfile() }}>
-                    <Text style={{ color: "#fff" }}>Düzenle</Text>
+                <TouchableOpacity style={[{ backgroundColor: color.primary, paddingHorizontal: 20, paddingVertical: 9, borderRadius: 5 }]} onPress={() => { updateProfile() }}>
+                    <Text style={[{ color: "#fff" }]}>Düzenle</Text>
                 </TouchableOpacity>
             </View>
         </ScrollView >

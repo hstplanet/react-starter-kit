@@ -24,33 +24,10 @@ export default function QDrawerMenu({ currentTab, setCurrentTab, title, image, n
                 navigation.navigate(to)
                 setShowMenu(true)
             }
-                setCurrentTab(title)
-                navigation.navigate(to)
-                setShowMenu(true)
         }}>
-            <View style={{
-                flexDirection: "row",
-                alignItems: 'center',
-                paddingVertical: 8,
-                backgroundColor: currentTab == title ? 'white' : 'transparent',
-                paddingLeft: 13,
-                paddingRight: 35,
-                borderRadius: 8,
-                marginTop: 15
-            }}>
-
-                <Image source={image} style={{
-                    width: 25, height: 25,
-                    tintColor: currentTab == title ? color.primary : "white"
-                }}></Image>
-
-                <Text style={{
-                    fontSize: 15,
-                    fontWeight: 'bold',
-                    paddingLeft: 15,
-                    color: currentTab == title ? color.primary : "white"
-                }}>{title}</Text>
-
+            <View style={styles.content}>
+                <Image source={image} style={styles.icon} />
+                <Text style={styles.title}>{title}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -63,4 +40,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    content: {
+        flexDirection: "row",
+        alignItems: 'center',
+        paddingVertical: 8,
+        backgroundColor: currentTab == title ? 'white' : 'transparent',
+        paddingLeft: 13,
+        paddingRight: 35,
+        borderRadius: 8,
+        marginTop: 15
+    },
+    icon: {
+        width: 25, height: 25,
+        tintColor: currentTab == title ? color.primary : "white"
+    },
+    title: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        paddingLeft: 15,
+        color: currentTab == title ? color.primary : "white"
+    }
 });

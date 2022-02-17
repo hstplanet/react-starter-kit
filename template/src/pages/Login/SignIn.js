@@ -72,14 +72,14 @@ export default function SignIn({ navigation }) {
                 <Image source={logo} style={styles.logo} />
                 <View style={styles.innerContainer}>
                     <Text style={[styles.h1, { fontFamily: 'Lato-Bold', color: color.primary }]}>Giriş Yap</Text>
-                    <Text style={{ fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular' }}>Sana özel fırsatlardan yararlanmak için giriş yap</Text>
-                    <Text style={{ marginVertical: 4 }}>E Posta</Text>
+                    <Text style={styles.herder_title}>Sana özel fırsatlardan yararlanmak için giriş yap</Text>
+                    <Text style={styles.q_my_sm}>E Posta</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={onChangeEmail}
                         value={email}
                     />
-                    <Text style={{ marginVertical: 4 }}>Şifre</Text>
+                    <Text style={styles.q_my_sm}>Şifre</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={onChangePassword}
@@ -87,21 +87,21 @@ export default function SignIn({ navigation }) {
                         value={password}
                     />
                     <TouchableOpacity onPress={() => navigation.navigate("Forget")}>
-                        <Text style={{ textAlign: 'right', fontWeight: "bold", color: "#333", marginTop: 10 }}>Şifreni mi unuttun ?</Text>
+                        <Text style={styles.remember_btn}>Şifreni mi unuttun ?</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity disabled={disable} style={[styles.btn, { backgroundColor: color.primary, marginVertical: 10 }]} onPress={() => login()}>
-                        <Text style={{ color: "#fff" }}>Giriş Yap</Text>
+                        <Text style={styles.confirm_btn}>Giriş Yap</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity disabled={disable} style={[styles.btn, { borderColor: "#ccc", borderWidth: 1 }]} onPress={() => navigation.navigate("SignUp")}>
-                        <Text style={{ color: color.primary }}>Üye Ol</Text>
+                        <Text style={[{ color: color.primary }]}>Üye Ol</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.row]}>
-                    <Text style={{ alignItems: "center", fontFamily: "Lato-Regular", marginRight: 5, fontSize: 16 }}>Üye değil misin?</Text>
+                    <Text style={[{ alignItems: "center", fontFamily: "Lato-Regular", marginRight: 5, fontSize: 16 }]}>Üye değil misin?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("Reset")}>
-                        <Text style={{ color: color.primary, fontFamily: "Lato-Bold", fontSize: 16 }}>Üye Ol.</Text>
+                        <Text style={[{ color: color.primary, fontFamily: "Lato-Bold", fontSize: 16 }]}>Üye Ol.</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -115,4 +115,16 @@ const styles = StyleSheet.create({
         width: 80,
         resizeMode: 'contain'
     },
+    herder_title: {
+        fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular'
+    },
+    q_my_sm: {
+        marginVertical: 4
+    },
+    remember_btn: {
+        textAlign: 'right', fontWeight: "bold", color: "#333", marginTop: 10
+    },
+    confirm_btn: {
+        color: "#fff"
+    }
 });

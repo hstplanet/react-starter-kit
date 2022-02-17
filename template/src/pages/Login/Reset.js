@@ -48,7 +48,7 @@ export default function SignIn({ navigation }) {
 
     }
 
-    React.useEffect(() => { ref_input1.current.focus() } , [])
+    React.useEffect(() => { ref_input1.current.focus() }, [])
 
     return (
         <QKeyboardScreen>
@@ -56,7 +56,7 @@ export default function SignIn({ navigation }) {
                 <Image source={logo} style={styles.logo} />
                 <View style={styles.innerContainer}>
                     <Text style={[styles.h1, { fontFamily: 'Lato-Regular' }]}>Güvenlik Anahtarı</Text>
-                    <Text style={{ fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular' }}>Size gönderdiğimiz güvenlik anahtarını oynaylayın.</Text>
+                    <Text style={styles.headerTitle}>Size gönderdiğimiz güvenlik anahtarını oynaylayın.</Text>
                     <View style={[styles.row, { justifyContent: 'space-between' }]}>
                         <MaskedTextInput
                             mask="9"
@@ -128,13 +128,13 @@ export default function SignIn({ navigation }) {
                         />
                     </View>
                     <TouchableOpacity style={[styles.btn, { backgroundColor: color.primary, marginVertical: 10 }]} onPress={() => confirmKey()}>
-                        <Text style={{ color: "#fff" }}>Gönder</Text>
+                        <Text style={styles.submit_btn}>Gönder</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.row]}>
-                    <Text style={{ alignItems: "center", fontFamily: "Lato-Regular", marginRight: 5, fontSize: 16 }}>Üye değil misin?</Text>
+                    <Text style={styles.footerTitle}>Üye değil misin?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                        <Text style={{ color: color.primary, fontFamily: "Lato-Bold", fontSize: 16 }}>Üye Ol.</Text>
+                        <Text style={styles.footer_btn}>Üye Ol.</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -148,4 +148,12 @@ const styles = StyleSheet.create({
         width: 80,
         resizeMode: 'contain'
     },
+    headerTitle: {
+        fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular'
+    },
+    submit_btn: {
+        color: "#fff"
+    },
+    footerTitle: { alignItems: "center", fontFamily: "Lato-Regular", marginRight: 5, fontSize: 16 },
+    footer_btn: { color: color.primary, fontFamily: "Lato-Bold", fontSize: 16 },
 });

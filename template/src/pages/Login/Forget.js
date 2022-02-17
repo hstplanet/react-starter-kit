@@ -55,21 +55,21 @@ export default function SignIn({ navigation }) {
                 <Image source={logo} style={styles.logo} />
                 <View style={styles.innerContainer}>
                     <Text style={[styles.h1, { fontFamily: 'Lato-Regular' }]}>Şifremi Unuttum</Text>
-                    <Text style={{ fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular' }}>Şifreni sıfırmalan için sana bir e posta göndereceğiz.</Text>
-                    <Text style={{ marginVertical: 4 }}>E Posta</Text>
+                    <Text style={styles.header}>Şifreni sıfırmalan için sana bir e posta göndereceğiz.</Text>
+                    <Text style={styles.q_mt_sm}>E Posta</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={onChangeEmail}
                         value={email}
                     />
                     <TouchableOpacity style={[styles.btn, { backgroundColor: color.primary, marginVertical: 10 }]} onPress={() => resetPassword()}>
-                        <Text style={{ color: "#fff" }}>Gönder</Text>
+                        <Text style={styles.submit_btn}>Gönder</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={[styles.row]}>
-                    <Text style={{ alignItems: "center", fontFamily: "Lato-Regular", marginRight: 5, fontSize: 16 }}>Üye değil misin?</Text>
+                <View style={styles.row}>
+                    <Text style={styles.footerTitle}>Üye değil misin?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                        <Text style={{ color: color.primary, fontFamily: "Lato-Bold", fontSize: 16 }}>Üye Ol.</Text>
+                        <Text style={footerBtn}>Üye Ol.</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -83,4 +83,19 @@ const styles = StyleSheet.create({
         width: 80,
         resizeMode: 'contain'
     },
+    header: {
+        fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular'
+    },
+    q_mt_sm: {
+        marginVertical: 4
+    },
+    submit_btn: {
+        color: "#fff"
+    },
+    footerTitle: {
+        alignItems: "center", fontFamily: "Lato-Regular", marginRight: 5, fontSize: 16
+    },
+    footerBtn: {
+        color: color.primary, fontFamily: "Lato-Bold", fontSize: 16
+    }
 });

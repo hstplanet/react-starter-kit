@@ -28,58 +28,58 @@ export default function Profile({ navigation }) {
     }
 
     return (
-        <ScrollView style={{}}>
+        <ScrollView style={ }>
             <View style={styles.container}>
-                <View style={{ alignItems: 'center' }}>
-                    <ImageBackground source={{ uri: mapGetters?.getUser()?.photoURL?.replace('localhost', "192.168.1.35") }} resizeMode="cover" imageStyle={{ borderRadius: 10 }} style={styles.profileImage} />
+                <View style={[{ alignItems: 'center' }]}>
+                    <ImageBackground source={() => { return { uri: mapGetters?.getUser()?.photoURL?.replace('localhost', "192.168.1.35") } }} resizeMode="cover" imageStyle={[{ borderRadius: 10 }]} style={styles.profileImage} />
                     <Text style={[styles.h3, { fontFamily: "Lato-Bold", marginVertical: 8 }]}>{mapGetters.getUser()?.fullName}</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
                         <Text style={[styles.h3, { fontFamily: "Lato-Bold", color: color.primary }]}>Profili Düzenle</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{ width: '100%' }}>
+                <View style={[{ width: '100%' }]}>
                     <Text style={[styles.h3, { fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left", padding: 12 }]}>Kişisel Bilgiler</Text>
                     <QSeperator />
-                    <View style={{ flexDirection: "row", padding: 12 }}>
-                        <Text style={{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>E Posta</Text>
-                        <Text style={{ fontSize: 14, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>{mapGetters.getUser()?.emailAddress}</Text>
+                    <View style={[{ flexDirection: "row", padding: 12 }]}>
+                        <Text style={[{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>E Posta</Text>
+                        <Text style={[{ fontSize: 14, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>{mapGetters.getUser()?.emailAddress}</Text>
                     </View>
                     <QSeperator />
-                    <View style={{ flexDirection: "row", padding: 12 }}>
-                        <Text style={{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Telefon</Text>
-                        <Text style={{ fontSize: 14, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>{mapGetters.getUser()?.phone}</Text>
+                    <View style={[{ flexDirection: "row", padding: 12 }]}>
+                        <Text style={[{ width: 100, fontSize: 14, color: color.primary, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Telefon</Text>
+                        <Text style={[{ fontSize: 14, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>{mapGetters.getUser()?.phone}</Text>
                     </View>
                     <QSeperator />
 
-                    <QSeperator style={{ marginTop: 20 }} />
-                    <TouchableOpacity style={{ flexDirection: "row", padding: 12, alignItems: 'center' }} onPress={() => navigation.push("Address")}>
+                    <QSeperator style={[{ marginTop: 20 }]} />
+                    <TouchableOpacity style={[{ flexDirection: "row", padding: 12, alignItems: 'center' }]} onPress={() => navigation.push("Address")}>
                         <Image style={[styles.icon, { marginRight: 20 }]} source={location} />
-                        <Text style={{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Adreslerim</Text>
+                        <Text style={[{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Adreslerim</Text>
                     </TouchableOpacity>
                     <QSeperator />
-                    <TouchableOpacity style={{ flexDirection: "row", padding: 12, alignItems: 'center' }}>
+                    <TouchableOpacity style={[{ flexDirection: "row", padding: 12, alignItems: 'center' }]}>
                         <Image style={[styles.icon, { marginRight: 20 }]} source={shop} />
-                        <Text style={{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Siparişlerim</Text>
+                        <Text style={[{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Siparişlerim</Text>
                     </TouchableOpacity>
                     <QSeperator />
-                    <TouchableOpacity style={{ flexDirection: "row", padding: 12, alignItems: 'center' }}>
+                    <TouchableOpacity style={[{ flexDirection: "row", padding: 12, alignItems: 'center' }]}>
                         <Image style={[styles.icon, { marginRight: 20 }]} source={like} />
-                        <Text style={{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Beğendiklerim</Text>
+                        <Text style={[{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Beğendiklerim</Text>
                     </TouchableOpacity>
                     <QSeperator />
-                    <TouchableOpacity style={{ flexDirection: "row", padding: 12, alignItems: 'center' }}>
+                    <TouchableOpacity style={[{ flexDirection: "row", padding: 12, alignItems: 'center' }]}>
                         <Image style={[styles.icon, { marginRight: 20 }]} source={notification} />
-                        <Text style={{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Bildirim Tercihleri</Text>
+                        <Text style={[{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Bildirim Tercihleri</Text>
                     </TouchableOpacity>
                     <QSeperator />
-                    <TouchableOpacity style={{ flexDirection: "row", padding: 12, alignItems: 'center' }}>
+                    <TouchableOpacity style={[{ flexDirection: "row", padding: 12, alignItems: 'center' }]}>
                         <Image style={[styles.icon, { marginRight: 20 }]} source={gift} />
-                        <Text style={{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Arkadaşlarını Davet Et</Text>
+                        <Text style={[{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Arkadaşlarını Davet Et</Text>
                     </TouchableOpacity>
                     <QSeperator />
-                    <TouchableOpacity style={{ flexDirection: "row", padding: 12, alignItems: 'center' }} onPress={() => userLogout()}>
+                    <TouchableOpacity style={[{ flexDirection: "row", padding: 12, alignItems: 'center' }]} onPress={() => userLogout()}>
                         <Image style={[styles.icon, { marginRight: 20 }]} source={logout} />
-                        <Text style={{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }}>Çıkış Yap</Text>
+                        <Text style={[{ fontSize: 18, color: color.fontColor, fontFamily: "Lato-Bold", marginVertical: 8, textAlign: "left" }]}>Çıkış Yap</Text>
                     </TouchableOpacity>
 
                 </View>

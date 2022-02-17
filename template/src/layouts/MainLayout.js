@@ -22,6 +22,11 @@ import { RouterMainLayout } from "../router"
 
 const Stack = createNativeStackNavigator();
 
+const config = {
+    headerShown: false,
+    animationEnabled: false
+}
+
 export default function MainLayout({ navigation }) {
 
     const dispatch = useDispatch();
@@ -29,7 +34,6 @@ export default function MainLayout({ navigation }) {
     const [showMenu, setShowMenu] = useState(true);
     const [load, setLoad] = useState(false);
 
-    
     React.useEffect(() => {
         new hst().server.auth.onAuthStateChanged().then(user => {
             dispatch(mapActions.setUser(user))
@@ -38,7 +42,7 @@ export default function MainLayout({ navigation }) {
             navigation.navigate("SignIn")
         });
     }, []);
-    
+
     return (
         <SafeAreaView style={styles.layout}>
 
@@ -54,27 +58,16 @@ export default function MainLayout({ navigation }) {
 
             <QLayout view="lHh Lpr fff" showMenu={showMenu}>
                 <QHeader style={styles.header}>
-                    <TouchableOpacity style={{ flexDirection: "row", alignItems: "center" }} onPress={() => { setShowMenu(!showMenu) }}>
-                        <Image source={!showMenu ? close : menu} style={{
-                            width: 24,
-                            height: 24,
-                            tintColor: 'grey',
-                        }} />
+                    <TouchableOpacity style={styles.headerTouchable} onPress={() => { setShowMenu(!showMenu) }}>
+                        <Image source={!showMenu ? close : menu} style={styles.headerIcon} />
                     </TouchableOpacity>
 
                     <Text>HST Planet Yazılım</Text>
-                    <Image source={{ uri: mapGetters.getUser()?.photoURL?.replace("localhost", "192.168.1.35") }} style={{
-                        width: 38,
-                        height: 38,
-                        borderRadius: 38,
-                    }} />
+                    <Image source={() => { return { uri: mapGetters.getUser()?.photoURL?.replace("localhost", "192.168.1.35") } }} style={styles.headerImage} />
                 </QHeader>
 
                 <QPageContainer>
-                    <Stack.Navigator screenOptions={{
-                        headerShown: false,
-                        animationEnabled: false
-                    }}>
+                    <Stack.Navigator screenOptions={config}>
                         {
                             RouterMainLayout.map((e, index) => (
                                 <Stack.Screen key={index} name={e.path} component={e.component} />
@@ -104,5 +97,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between'
     },
+
+    headerTouchable: {
+        flexDirection: "row", alignItems: "center"
+    },
+    headerIcon: {
+        width: 24,
+        height: 24,
+        tintColor: 'grey',
+    },
+    headerImage: {
+        width: 38,
+        height: 38,
+        borderRadius: 38,
+    }
 
 });

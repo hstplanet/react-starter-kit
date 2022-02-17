@@ -90,8 +90,8 @@ export default function SignIn({ navigation }) {
                 <Image source={logo} style={styles.logo} />
                 <View style={styles.innerContainer}>
                     <Text style={[styles.h1, { fontFamily: 'Lato-Bold', color: color.primary }]}>Kayıt Ol</Text>
-                    <Text style={{ fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular' }}>Sana özel fırsatlardan ve indirimlerden yararlanmak için kayıt ol</Text>
-                    <Text style={{ marginVertical: 4 }}>Ad Soyad*</Text>
+                    <Text style={[{ fontSize: 22, marginVertical: 10, fontFamily: 'Lato-Regular' }]}>Sana özel fırsatlardan ve indirimlerden yararlanmak için kayıt ol</Text>
+                    <Text style={[{ marginVertical: 4 }]}>Ad Soyad*</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={(value) => {
@@ -109,20 +109,20 @@ export default function SignIn({ navigation }) {
                         }}
                         value={fullName}
                     />
-                    <Text style={{ marginVertical: 4 }}>E Posta*</Text>
+                    <Text style={[{ marginVertical: 4 }]}>E Posta*</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={onChangeEmail}
                         value={email}
                     />
-                    <Text style={{ marginVertical: 4 }}>Şifre*</Text>
+                    <Text style={[{ marginVertical: 4 }]}>Şifre*</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={onChangePassword}
                         secureTextEntry
                         value={password}
                     />
-                    <Text style={{ marginVertical: 4 }}>Telefon</Text>
+                    <Text style={[{ marginVertical: 4 }]}>Telefon</Text>
                     <MaskedTextInput
                         mask="0999 999 99 99"
                         onChangeText={onChangePhone}
@@ -138,23 +138,23 @@ export default function SignIn({ navigation }) {
                         />
                         <View style={[styles.row, { flexWrap: 'wrap' }]}>
                             <TouchableOpacity>
-                                <Text style={{ color: color.primary, fontFamily: 'Lato-Bold' }}>Kullanım Koşulları</Text>
+                                <Text style={[{ color: color.primary, fontFamily: 'Lato-Bold' }]}>Kullanım Koşulları</Text>
                             </TouchableOpacity>
-                            <Text style={{ color: color.fontColor, fontFamily: 'Lato-Bold' }}>'nı kabul ediyorum.</Text>
+                            <Text style={[{ color: color.fontColor, fontFamily: 'Lato-Bold' }]}>'nı kabul ediyorum.</Text>
                             <TouchableOpacity>
-                                <Text style={{ color: color.primary, fontFamily: 'Lato-Bold' }}>Gizlilik Politikası ve Aydınlat Metni</Text>
+                                <Text style={[{ color: color.primary, fontFamily: 'Lato-Bold' }]}>Gizlilik Politikası ve Aydınlat Metni</Text>
                             </TouchableOpacity>
-                            <Text style={{ color: color.fontColor, fontFamily: 'Lato-Bold' }}>'ni okudum,</Text>
-                            <Text style={{ color: color.fontColor, fontFamily: 'Lato-Bold' }}>kişisel verilerimin işlenmesine ilişkin</Text>
+                            <Text style={[{ color: color.fontColor, fontFamily: 'Lato-Bold' }]}>'ni okudum,</Text>
+                            <Text style={[{ color: color.fontColor, fontFamily: 'Lato-Bold' }]}>kişisel verilerimin işlenmesine ilişkin</Text>
                             <TouchableOpacity>
-                                <Text style={{ color: color.primary, fontFamily: 'Lato-Bold' }}> burada </Text>
+                                <Text style={[{ color: color.primary, fontFamily: 'Lato-Bold' }]}> burada </Text>
                             </TouchableOpacity>
-                            <Text style={{ color: color.fontColor, fontFamily: 'Lato-Bold' }}>belirtildiği şekilde açık rızam vardır.</Text>
+                            <Text style={[{ color: color.fontColor, fontFamily: 'Lato-Bold' }]}>belirtildiği şekilde açık rızam vardır.</Text>
                         </View>
                     </View>
 
                     <TouchableOpacity style={[styles.btn, { backgroundColor: color.primary, marginVertical: 10 }]} onPress={() => register()}>
-                        <Text style={{ color: "#fff" }}>Kayıt Ol</Text>
+                        <Text style={[{ color: "#fff" }]}>Kayıt Ol</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.row]}>
