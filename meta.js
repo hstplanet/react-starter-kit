@@ -53,27 +53,27 @@ module.exports = {
                 {
                     name: 'Vuex',
                     value: 'vuex',
-                    default : true
+                    selected : true
                 },
                 {
                     name: 'Axios',
                     value: 'axios',
-                    default : true
+                    selected : true
                 },
                 {
                     name: 'HSTCore',
                     value: 'hstcore',
-                    default : true
+                    selected : true
                 },
                 {
                     name: 'Login System',
                     value: 'loginsystem',
-                    default : true
+                    selected : true
                 },
                 {
                     name: 'I18n',
                     value: 'i18n',
-                    default : true
+                    selected : true
                 },
                 {
                     name: 'Firebase',
