@@ -22,13 +22,15 @@ export default function App() {
     return (<AppLoading />);
   }
 
+  const config = {
+    headerShown: false,
+    animationEnabled: false
+  }
+
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <AppStack.Navigator screenOptions={{
-          headerShown: false,
-          animationEnabled: false
-        }}>
+        <AppStack.Navigator screenOptions={config}>
           {{#if_eq preset.loginsystem}}
           <AppStack.Screen name="Login" component={LoginLayout} />
           {{/if_eq}}

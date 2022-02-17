@@ -14,7 +14,7 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{ justifyContent: 'flex-start', paddingVertical: 35, paddingHorizontal: 15 }}>
+            <View style={styles.qdrawer}>
             {{#if_eq preset.loginsystem}}
                 <Image source={{uri: mapGetters?.getUser()?.photoURL?.replace('localhost' , "192.168.1.35")}} style={{
                     width: 60,
@@ -70,4 +70,9 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
+    qdrawer : {
+        justifyContent: 'flex-start', 
+        paddingVertical: 35, 
+        paddingHorizontal: 15
+    }
 });
