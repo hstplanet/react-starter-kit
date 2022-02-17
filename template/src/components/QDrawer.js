@@ -2,9 +2,9 @@ import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'r
 import React, { useState } from 'react';
 import QDrawerMenu from "./QDrawerMenu"
 import color from "../css/color"
-
+{{#if preset.loginsystem}}
 import mapGetters from "../store/User/getters"
-
+{{/if}}
 import logout from '../assets/logout.png';
 
 export default function QDrawer({ navigation, children, setShowMenu }) {
@@ -15,6 +15,7 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.qdrawer}>
+                {{#if preset.loginsystem}}
                 <Image source={[{ uri: mapGetters?.getUser().photoURL.replace('localhost', "192.168.1.35") }]} style={styles.image} />
                 <Text style={styles.userName}>{mapGetters?.getUser()?.fullName}</Text>
 
@@ -24,6 +25,7 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
                 }}>
                     <Text style={styles.profileBtn}>Profilim</Text>
                 </TouchableOpacity>
+                {{/if}}
                 <View style={styles.btnArea}>
                     {
                         children.map((child) => {
@@ -33,9 +35,11 @@ export default function QDrawer({ navigation, children, setShowMenu }) {
                         })
                     }
                 </View>
+                {{#if preset.loginsystem}}
                 <View>
                     <QDrawerMenu currentTab={currentTab} setCurrentTab={setCurrentTab} title="Çıkış Yap" image={logout} navigation={navigation} to="Login" setShowMenu={setShowMenu} />
                 </View>
+                {{/if}}
             </View>
         </SafeAreaView>
     )
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
-    image: {
+    {{#if preset.loginsystem}}image: {
         width: 60,
         height: 60,
         borderRadius: 10,
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
     profileBtn: {
         marginTop: 6,
         color: 'white'
-    },
+    },{{/if}}
     btnArea: {
         flexGrow: 1, marginTop: 20
     },

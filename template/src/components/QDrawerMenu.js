@@ -1,17 +1,17 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import mapActions from "../store/User/actions"
-import { useDispatch } from 'react-redux'
+{{#if preset.loginsystem}}import mapActions from "../store/User/actions"
+import { useDispatch } from 'react-redux'{{/if}}
 
 import color from "../css/color"
 import hst from "../hst"
 
 export default function QDrawerMenu({ currentTab, setCurrentTab, title, image, navigation, to, setShowMenu }) {
 
-    const dispatch = useDispatch();
+    {{#if preset.loginsystem}}const dispatch = useDispatch();{{/if}}
 
     return (
         <TouchableOpacity onPress={() => {
-            if (title == "Çıkış Yap") {
+            {{#if preset.loginsystem}}if (title == "Çıkış Yap") {
                 new hst().server.auth.logout().then(() => {
                     setShowMenu(true)
                     navigation.push("Login")
@@ -23,7 +23,12 @@ export default function QDrawerMenu({ currentTab, setCurrentTab, title, image, n
                 setCurrentTab(title)
                 navigation.navigate(to)
                 setShowMenu(true)
-            }
+            }{{/if}}
+            {{#if !preset.loginsystem}}
+            setCurrentTab(title)
+            navigation.navigate(to)
+            setShowMenu(true)
+            {{/if}}
         }}>
             <View style={[{
                 flexDirection: "row",
