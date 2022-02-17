@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 
 import MainLayout from "./src/layouts/MainLayout"
-import LoginLayout from "./src/layouts/LoginLayout"
+{{#if preset.loginsystem}}import LoginLayout from "./src/layouts/LoginLayout"{{/if}}
 import fonts from "./src/css/fonts"
 
 const AppStack = createNativeStackNavigator();
@@ -29,7 +29,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <AppStack.Navigator screenOptions={config}>
-          <AppStack.Screen name="Login" component={LoginLayout} />
+          {{#if preset.loginsystem}}<AppStack.Screen name="Login" component={LoginLayout} />{{/if}}
           <AppStack.Screen name="Main" component={MainLayout} />
         </AppStack.Navigator>
       </NavigationContainer>

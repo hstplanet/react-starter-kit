@@ -1,13 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useDispatch } from 'react-redux'
 
-
+{{#if preset.loginsystem}}import { useDispatch } from 'react-redux';
 import mapGetters from "../store/User/getters";
-import mapActions from "../store/User/actions"
-
-import hst from "../hst";
+import mapActions from "../store/User/actions";
+import hst from "../hst";{{/if}}
 
 import menu from '../assets/menu.png';
 import close from '../assets/close.png';
@@ -29,18 +27,17 @@ const config = {
 
 export default function MainLayout({ navigation }) {
 
-    const dispatch = useDispatch();
+    {{#if preset.loginsystem}}const dispatch = useDispatch();{{/if}}
 
     const [showMenu, setShowMenu] = useState(true);
-    const [load, setLoad] = useState(false);
 
     React.useEffect(() => {
-        new hst().server.auth.onAuthStateChanged().then(user => {
+        {{#if preset.loginsystem}}new hst().server.auth.onAuthStateChanged().then(user => {
             dispatch(mapActions.setUser(user))
             setLoad(true);
         }).catch(error => {
             navigation.navigate("SignIn")
-        });
+        });{{/if}}
     }, []);
 
     return (
@@ -63,7 +60,7 @@ export default function MainLayout({ navigation }) {
                     </TouchableOpacity>
 
                     <Text>HST Planet Yazılım</Text>
-                    <Image source={[{ uri: mapGetters.getUser()?.photoURL?.replace("localhost", "192.168.1.35") }]} style={styles.headerImage} />
+                    {{#if preset.loginsystem}}<Image source={[{ uri: mapGetters.getUser()?.photoURL?.replace("localhost", "192.168.1.35") }]} style={styles.headerImage} />{{/if}}
                 </QHeader>
 
                 <QPageContainer>
